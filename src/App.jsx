@@ -9,7 +9,7 @@ import { recoilPersist } from "recoil-persist";
 const { persistAtom } = recoilPersist();
 
 // 라이브러리
-import Swiper from "swiper";
+import Swiper from "https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js";
 import "swiper/css/bundle";
 
 // 커스텀
@@ -427,11 +427,13 @@ const SwiperSlider = React.memo(
         swiperOptions
       );
 
+      console.log(finalSwiperOptions);
+
       const swiper = new Swiper(swiperElementRef.current, finalSwiperOptions);
 
       return () => {
         console.log("스와이어 객체 제거됨!");
-        swiper.destory();
+        swiper.destroy();
       };
     }, []);
 
